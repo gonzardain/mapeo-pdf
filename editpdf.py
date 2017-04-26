@@ -98,7 +98,7 @@ def settingBarcode(stringBuffer, data_dict):
 	barcode_value = "SPM290123456789123456"
 	can = canvas.Canvas(stringBuffer, pagesize=letter)
 	#barcode1 = code128.Code128("CA0390029",barWidth=.25*mm,barHeight=5*mm, checksum = True)
-	barcode1 = code39.Standard39("SPM290123456789123456", stop=1, barHeight=15*mm, barWidth=.215*mm,  checksum=1)
+	barcode1 = code39.Standard39("CYF290123456789123456P", stop=1, barHeight=15*mm, barWidth=.215*mm,  checksum=0)
 	#barcode2 = code128.Code128("000715u057123",barWidht=.25*cm,barHeight =5*mm)
 	settingText(stringBuffer, can, barcode1,  data_dict)
 
@@ -196,7 +196,7 @@ def settingText(stringBuffer, can, barcode1,  data_dict):
 #		Datos de Codigo de Barras                  #
 ####################################################
 
-	text= '<font name= "Keep Calm" color= "#231F20" size="6">SPM%s0</font>'%data_dict[31]
+	text= '<font name= "Keep Calm" color= "#231F20" size="6">CYF290123456789123456P</font>'
 	settingParagraphs6(text, can, stringBuffer, 400, 987, count, data_dict, barcode1)
 	#print data_dict[23]
 
