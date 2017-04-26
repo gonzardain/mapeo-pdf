@@ -31,4 +31,4 @@ def add_check_digit(upc_str):
 return upc_str + str(check_digit)
 
 if __name__ == "__main__":
-add_check_digit(upc_str)
+    add_check_digit(upc_str)
