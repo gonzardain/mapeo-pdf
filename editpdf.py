@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 ######################################################################################################################################
 #		Nombre Proyecto: CYF PDF MAKER
-#		Autor: Gonzalo Zardain Castelazo				
+#		Autor: Gonzalo Zardain Castelazo
 #		Empresa: Codelab (Grupo Teklan S. de R.L. de C.V.)
-#       Fecha de inicio: 
+#       Fecha de inicio:
 #       Fecha de termino
 #       Notas:
 #
@@ -51,7 +51,7 @@ AvenirItaTTF = "AvenirNextLTPro-It.ttf"
 font_KeepCalm = fonts_path + KeepCalmTTF
 pdfmetrics.registerFont(TTFont("Keep Calm", font_KeepCalm))
 
-font_AvenirRegular = fonts_path + AvenirRegularTTF 
+font_AvenirRegular = fonts_path + AvenirRegularTTF
 pdfmetrics.registerFont(TTFont("Avenir Regular", font_AvenirRegular))
 
 font_AvenirHeavy = fonts_path + AvenirHeavyTTF
@@ -60,7 +60,7 @@ pdfmetrics.registerFont(TTFont("Avenir Heavy", font_AvenirHeavy))
 font_AvenirBold = fonts_path + AvenirBoldTTF
 pdfmetrics.registerFont(TTFont("Avenir Bold", font_AvenirBold))
 
-font_AvenirItalic = fonts_path + AvenirItaTTF 
+font_AvenirItalic = fonts_path + AvenirItaTTF
 pdfmetrics.registerFont(TTFont("Avenir Italic", font_AvenirItalic))
 
 
@@ -210,8 +210,8 @@ def settingText(stringBuffer, can, barcode1,  data_dict):
 #		Numero de Cuenta Frontal                   #
 ####################################################
 
-	text= '<font name= "Keep Calm" color= "white" size="10">CUENTA: %s</font>'%( str(data_dict[0]).zfill(6))
-	settingParagraphs5(text, can, stringBuffer, 487, 875, count, data_dict, barcode1)
+	text= '<font name= "Keep Calm" color= "white" size="8">CUENTA: %s</font>'%( str(data_dict[0]).zfill(6))
+	settingParagraphs5(text, can, stringBuffer, 477, 875, count, data_dict, barcode1)
 
 ####################################################
 #		Linea de Captura Predial                   #
@@ -366,7 +366,7 @@ def writePage2(stringBuffer):
 def settingText2(stringBuffer):
 	global first_name, name, c
 	can = canvas.Canvas(stringBuffer, pagesize=letter)
-	
+
 	coordinates_x = [63]
 	coordinates_y =[807]
 	coordinates_xn = [110]
@@ -422,7 +422,7 @@ def createPDF2(stringBuffer):
 
 if __name__ == "__main__":
 	global pdf_counter, pdf_final, c
-	c = 0 
+	c = 0
 	pdf_final= 1
 	pdf_counter = 1
 	load_wb()
