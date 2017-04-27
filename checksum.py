@@ -11,8 +11,8 @@ def add_check_digit(upc_str):
     """
 
     upc_str = str(upc_str)
-    if len(upc_str) != 11:
-        raise Exception("Invalid length")
+    #if len(upc_str) != 11:
+        #raise Exception("Invalid length")
 
     odd_sum = 0
     even_sum = 0
@@ -28,7 +28,8 @@ def add_check_digit(upc_str):
     check_digit = 10 - mod
     if check_digit == 10:
         check_digit = 0
-return upc_str + str(check_digit)
+    print upc_str + str(check_digit)
 
 if __name__ == "__main__":
+    upc_str = 12993614472
     add_check_digit(upc_str)
