@@ -60,7 +60,7 @@ def add_check_digit(code39):
 
     """
     total_sum = (even_sum * 3) + odd_sum +54
-    print total_sum
+    #print total_sum
     mod = total_sum % 10
     check_digit = 10 - mod
     if check_digit == 10:
