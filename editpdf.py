@@ -233,7 +233,7 @@ def settingText(stringBuffer, can, barcode1,  data_dict):
 #		Direccion en la seccion 2	               #
 ####################################################
 
-	text2= '<font name= "Avenir Bold" color= "#4a4c4c" size="8">%s %s %s %s %s %s %s</font>'%( data_dict[3], data_dict[4][:-2], data_dict[5][:-2], data_dict[6], data_dict[7][:-2], data_dict[8], data_dict[9])
+	text2= '<font name= "Avenir Bold" color= "#525555" size="8">%s %s %s %s %s %s %s</font>'%( data_dict[3], data_dict[4][:-2], data_dict[5][:-2], data_dict[6], data_dict[7][:-2], data_dict[8], data_dict[9])
 	settingParagraphs4(text2, can, stringBuffer, 40, 523.5, count, data_dict, barcode1)
 
 	for index in range(len(data_dict)):
