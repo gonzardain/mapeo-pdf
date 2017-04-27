@@ -33,7 +33,7 @@ from reportlab.platypus import Paragraph, Frame, KeepInFrame
 import cStringIO
 from openpyxl import load_workbook
 from reportlab.lib.enums import TA_RIGHT
-import math, os checksum
+import math, os, checksum
 
 ##################################################
 #		Ubicacion de las fuentes                 #
@@ -95,14 +95,17 @@ def writePage1(stringBuffer, data_dict):
 
 
 def settingBarcode(stringBuffer, data_dict):
-	barcode_value = "SPM290123456789123456"
+	value_default = "29"
+	value_16 = str(data_dict[31].__add__("0"))
+	total_value = "{}{}".format(value_default, value_16)
+	checkdigit = str(checksum.add_check_digit(total_value))
 	can = canvas.Canvas(stringBuffer, pagesize=letter)
-	#barcode1 = code128.Code128("CA0390029",barWidth=.25*mm,barHeight=5*mm, checksum = True)
-	barcode1 = code39.Standard39("CYF290123456789123456P", stop=1, barHeight=15*mm, barWidth=.215*mm,  checksum=0)
+	barcode_value = "CYF{}{}{}".format(value_default, value_16, checkdigit)
+	barcode1 = code39.Standard39(barcode_value, stop=1, barHeight=15*mm, barWidth=.215*mm,  checksum=0)
 	#barcode2 = code128.Code128("000715u057123",barWidht=.25*cm,barHeight =5*mm)
-	settingText(stringBuffer, can, barcode1,  data_dict)
+	settingText(stringBuffer, can, barcode1,  data_dict, barcode_value)
 
-def settingText(stringBuffer, can, barcode1,  data_dict):
+def settingText(stringBuffer, can, barcode1,  data_dict, barcode_value):
 	global first_name, name
 	count = 0
 	coordinates_x = [
@@ -196,7 +199,7 @@ def settingText(stringBuffer, can, barcode1,  data_dict):
 #		Datos de Codigo de Barras                  #
 ####################################################
 
-	text= '<font name= "Keep Calm" color= "#231F20" size="6">CYF290123456789123456P</font>'
+	text= '<font name= "Keep Calm" color= "#231F20" size="6">%s</font>'%(barcode_value)
 	settingParagraphs6(text, can, stringBuffer, 400, 987, count, data_dict, barcode1)
 	#print data_dict[23]
 
@@ -389,7 +392,7 @@ def settingParagraphs2(text, can, stringBuffer, x, y ):
 	paragraph = Paragraph(text, style=style["Normal"])
 	paragraph.wrapOn(can, width, height)
 	paragraph.drawOn(can, x, y, mm)
-	print c
+	#print c
 	if c % 2 == 0:
 		saveCanvas2(can, stringBuffer)
 
