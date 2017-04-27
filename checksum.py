@@ -17,6 +17,7 @@ def add_check_digit(upc_str):
     odd_sum = 0
     even_sum = 0
     for i, char in enumerate(upc_str):
+        
         j = i+1
         if j % 2 == 0:
             even_sum += int(char)
