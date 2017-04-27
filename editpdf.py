@@ -33,7 +33,7 @@ from reportlab.platypus import Paragraph, Frame, KeepInFrame
 import cStringIO
 from openpyxl import load_workbook
 from reportlab.lib.enums import TA_RIGHT
-import math, os
+import math, os checksum
 
 ##################################################
 #		Ubicacion de las fuentes                 #
