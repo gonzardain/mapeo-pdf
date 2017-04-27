@@ -39,8 +39,8 @@ def add_check_digit(code39):
     """
 
     code39 = str(code39)
-    if len(code39) != 18:
-        raise Exception("Invalid length")
+    #if len(code39) != 18:
+        #raise Exception("Invalid length")
 
     odd_sum = 0
     even_sum = 0
@@ -65,12 +65,12 @@ def add_check_digit(code39):
     check_digit = 10 - mod
     if check_digit == 10:
         check_digit = 0
-    #print code39 + str(check_digit)
+    print code39 + str(check_digit)
 
 
-    return (str(check_digit))
+    #return (str(check_digit))
 
 
-#if __name__ == "__main__":
-    #code39 = "Code goes here"
-    #add_check_digit(code39)
+if __name__ == "__main__":
+    code39 = 291341804124952050
+    add_check_digit(code39)
