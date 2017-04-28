@@ -65,7 +65,7 @@ def add_check_digit(code39):
     check_digit = 10 - mod
     if check_digit == 10:
         check_digit = 0
-    print code39 + str(check_digit)
+    #print code39 + str(check_digit)
 
 
     return (str(check_digit))
