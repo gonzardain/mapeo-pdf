@@ -144,7 +144,8 @@ def settingText(stringBuffer, can, barcode1,  data_dict, barcode_value):
 					116.937, #32 captura agua#
 					70.823, #33 adicional#
 					70.823, #34 adicional#
-					70.823 #35 adicional#
+					70.823, #35 adicional#
+
 					]
 
 	coordinates_y = [
@@ -183,7 +184,8 @@ def settingText(stringBuffer, can, barcode1,  data_dict, barcode_value):
 					431.198, #32 captura agua#
 					70.823, #33 ignorar#
 					70.823, #34 adicional#
-					70.823 #35 adicional#
+					70.823, #35 adicional#
+
 					]
 
 
