@@ -79,7 +79,7 @@ def load_wb():
 
 def create_array(data, column, data_dict):
 	data_dict.append(data)
-	if column == 34:
+	if column == 36:
 		do_stuff(data_dict)
 
 
@@ -142,7 +142,9 @@ def settingText(stringBuffer, can, barcode1,  data_dict, barcode_value):
 					70.823, #30 ignorar#
 					116.937, #31 captura predial#
 					116.937, #32 captura agua#
-					70.823, #33 ignorar#
+					70.823, #33 adicional#
+					70.823, #34 adicional#
+					70.823 #35 adicional#
 					]
 
 	coordinates_y = [
@@ -179,13 +181,15 @@ def settingText(stringBuffer, can, barcode1,  data_dict, barcode_value):
 					70.823, #30 ignorar#
 					431.198, #31 captura predial#
 					431.198, #32 captura agua#
-					70.823 #33 ignorar#
+					70.823, #33 ignorar#
+					70.823, #34 adicional#
+					70.823 #35 adicional#
 					]
 
 
 
-	name = data_dict[2]
-	first_name = data_dict[1]
+	name = data_dict[35]
+	first_name = data_dict[34]
 
 	for data in range(10):
 		if data_dict[data] is None:
@@ -238,7 +242,7 @@ def settingText(stringBuffer, can, barcode1,  data_dict, barcode_value):
 
 	text2= '<font name= "Avenir Bold" color= "#525555" size="8">%s %s %s %s %s %s %s</font>'%( data_dict[3], data_dict[4][:-2], data_dict[5][:-2], data_dict[6], data_dict[7][:-2], data_dict[8], data_dict[9])
 	settingParagraphs4(text2, can, stringBuffer, 40, 523.5, count, data_dict, barcode1)
-
+	print len(data_dict)
 	for index in range(len(data_dict)):
 		text2 =""
 
@@ -280,6 +284,7 @@ def settingText(stringBuffer, can, barcode1,  data_dict, barcode_value):
 			text2= '<font name= "Avenir Heavy" Color="#231f20"  size="10">${:,.2f}</font>'.format(value_rounded)
 
 		count = count + 1
+
 		settingParagraphs3(text2, can, stringBuffer, coordinates_x[count-1], coordinates_y[count-1], count, data_dict, barcode1)
 
 def settingParagraphs6(text,  can, stringBuffer, x, y, count, data_dict, barcode1):
@@ -378,9 +383,9 @@ def settingText2(stringBuffer):
 	#pdfmetrics.registerFont(TTFont("Avenir Bold", font_AvenirBold))
 	#font_AvenirItalic = r"/home/gonz/cloud/Codelab/Software/cyf/fonts/AvenirNextLTPro-It.ttf"
 	#pdfmetrics.registerFont(TTFont("Avenir Italic", font_AvenirItalic))
-	text= '<font name="Avenir Bold" color= "#4a4c4c" size="16">%s</font>'%name.title()
+	text= '<font name="Avenir Bold" color= "#4a4c4c" size="16">%s</font>'%name
 	settingParagraphs2(text, can, stringBuffer, coordinates_x[0], coordinates_y[0])
-	text= '<font name="Avenir Italic" color= "#4a4c4c" size="12">%s</font>'%first_name.title()
+	text= '<font name="Avenir Italic" color= "#4a4c4c" size="12">%s</font>'%first_name
 	settingParagraphs2(text, can, stringBuffer, coordinates_xn[0], coordinates_yn[0])
 
 
