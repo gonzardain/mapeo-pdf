@@ -66,9 +66,9 @@ def do_stuff(data_dict):
 	writePage1(stringBuffer, data_dict)
 	del data_dict[:]
 
-    if __name__ == "__main__":
-    	global pdf_counter, pdf_final, c
-    	c = 0
-    	pdf_final= 1
-    	pdf_counter = 1
-    	#load_wb()
+if __name__ == "__main__":
+	global pdf_counter, pdf_final, c
+	c = 0
+	pdf_final= 1
+	pdf_counter = 1
+    #load_wb()
