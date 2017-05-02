@@ -183,26 +183,53 @@ def settingText(stringBuffer, can, barcode1,  data_dict, barcode_value):
 
 
 ####################################################
-#		Direccion                                  #
+#		BLOQUE 1                                   #
 ####################################################
 	text= '<font name= "Times" color= "#05060B" size="7">%s %s %s %s CP %s <br/> %s %s</font>'%( data_dict[3], data_dict[4], data_dict[5], data_dict[6], data_dict[7], data_dict[8], data_dict[9])
-	settingParagraphs1(text, can, stringBuffer, 5, 303, count, data_dict, barcode1, 245, 60)
+	settingParagraphs1(text, can, stringBuffer, 5, 303, count, data_dict, barcode1, 245, 60, 14.02, 220)
 
 	text= '<font name= "Times" color= "#05060B" size="7">%s</font>'%( data_dict[35] )
 	settingParagraphs2(text, can, stringBuffer, 62, 343, count, data_dict, barcode1, 195.086, 30.251)
 
 	text= '<font name= "Times" color= "#05060B" size="7">%s</font>'%( barcode_value )
-	settingParagraphs3(text, can, stringBuffer, 85, 205, count, data_dict, barcode1, 195.086, 30.251)
+	settingParagraphs3(text, can, stringBuffer, 92, 205, count, data_dict, barcode1, 195.086, 30.251)
+
+####################################################
+#		BLOQUE 2                                   #
+####################################################
+
+	text= '<font name= "Times" color= "#05060B" size="7">%s %s %s %s CP %s <br/> %s %s</font>'%( data_dict[3], data_dict[4], data_dict[5], data_dict[6], data_dict[7], data_dict[8], data_dict[9])
+	settingParagraphs1_2(text, can, stringBuffer, 272.7, 303, count, data_dict, barcode1, 245, 60, 278.5, 220)
+
+	text= '<font name= "Times" color= "#05060B" size="7">%s</font>'%( data_dict[35] )
+	settingParagraphs2_2(text, can, stringBuffer, 330, 343, count, data_dict, barcode1, 195.086, 30.251)
+
+	text= '<font name= "Times" color= "#05060B" size="7">%s</font>'%( barcode_value )
+	settingParagraphs3_2(text, can, stringBuffer, 356, 205, count, data_dict, barcode1, 195.086, 30.251)
+
+####################################################
+#		BLOQUE 3                                   #
+####################################################
+
+	text= '<font name= "Times" color= "#05060B" size="7">%s %s %s %s CP %s <br/> %s %s</font>'%( data_dict[3], data_dict[4], data_dict[5], data_dict[6], data_dict[7], data_dict[8], data_dict[9])
+	settingParagraphs1_3(text, can, stringBuffer, 535, 303, count, data_dict, barcode1, 245, 60, 542.98, 220)
+
+	text= '<font name= "Times" color= "#05060B" size="7">%s</font>'%( data_dict[35] )
+	settingParagraphs2_3(text, can, stringBuffer, 593, 343, count, data_dict, barcode1, 195.086, 30.251)
+
+	text= '<font name= "Times" color= "#05060B" size="7">%s</font>'%( barcode_value )
+	settingParagraphs3_3(text, can, stringBuffer, 620, 205, count, data_dict, barcode1, 195.086, 30.251)
 
 
-def settingParagraphs1(text,  can, stringBuffer, x, y, count, data_dict, barcode1, framex, framey):
+
+def settingParagraphs1(text,  can, stringBuffer, x, y, count, data_dict, barcode1, framex, framey, barx, bary):
 	style = getSampleStyleSheet()
 	width, height = letter
 	frame1 = Frame(x, y, framex, framey, showBoundary=0)
 	paragraph = [Paragraph(text, style['Normal'])]
 	border = KeepInFrame(6*inch, 15*inch, paragraph)
 	borderdraw = frame1.addFromList([border], can)
-	barcode1.drawOn(can, 13, 220, mm)
+	barcode1.drawOn(can, barx, bary, mm)
 	#barcode1.drawOn(can, 160.1, 980, mm)
 #if count == len(data_dict):
 	#saveCanvas(can, stringBuffer)
@@ -221,6 +248,72 @@ def settingParagraphs2(text,  can, stringBuffer, x, y, count, data_dict, barcode
 	#saveCanvas(can, stringBuffer)
 
 def settingParagraphs3(text,  can, stringBuffer, x, y, count, data_dict, barcode1, framex, framey):
+	style = getSampleStyleSheet()
+	width, height = letter
+	paragraph = Paragraph(text, style=style["Normal"])
+	paragraph.wrapOn(can, width, height)
+	paragraph.drawOn(can, x, y, mm)
+
+
+def settingParagraphs1_2(text,  can, stringBuffer, x, y, count, data_dict, barcode1, framex, framey, barx, bary):
+	style = getSampleStyleSheet()
+	width, height = letter
+	frame1 = Frame(x, y, framex, framey, showBoundary=0)
+	paragraph = [Paragraph(text, style['Normal'])]
+	border = KeepInFrame(6*inch, 15*inch, paragraph)
+	borderdraw = frame1.addFromList([border], can)
+	barcode1.drawOn(can, barx, bary, mm)
+	#barcode1.drawOn(can, 160.1, 980, mm)
+#if count == len(data_dict):
+	#saveCanvas(can, stringBuffer)
+
+def settingParagraphs2_2(text,  can, stringBuffer, x, y, count, data_dict, barcode1, framex, framey):
+	count = count + 1
+	style = getSampleStyleSheet()
+	width, height = letter
+	frame1 = Frame(x, y, framex, framey, showBoundary=0)
+	paragraph = [Paragraph(text, style['Normal'])]
+	border = KeepInFrame(6*inch, 15*inch, paragraph)
+	borderdraw = frame1.addFromList([border], can)
+	#barcode1.drawOn(can, 325, 999, mm)
+	#barcode1.drawOn(can, 160.1, 980, mm)
+#if count == len(data_dict):
+	#saveCanvas(can, stringBuffer)
+
+def settingParagraphs3_2(text,  can, stringBuffer, x, y, count, data_dict, barcode1, framex, framey):
+	style = getSampleStyleSheet()
+	width, height = letter
+	paragraph = Paragraph(text, style=style["Normal"])
+	paragraph.wrapOn(can, width, height)
+	paragraph.drawOn(can, x, y, mm)
+
+
+def settingParagraphs1_3(text,  can, stringBuffer, x, y, count, data_dict, barcode1, framex, framey, barx, bary):
+	style = getSampleStyleSheet()
+	width, height = letter
+	frame1 = Frame(x, y, framex, framey, showBoundary=0)
+	paragraph = [Paragraph(text, style['Normal'])]
+	border = KeepInFrame(6*inch, 15*inch, paragraph)
+	borderdraw = frame1.addFromList([border], can)
+	barcode1.drawOn(can, barx, bary, mm)
+	#barcode1.drawOn(can, 160.1, 980, mm)
+#if count == len(data_dict):
+	#saveCanvas(can, stringBuffer)
+
+def settingParagraphs2_3(text,  can, stringBuffer, x, y, count, data_dict, barcode1, framex, framey):
+	count = count + 1
+	style = getSampleStyleSheet()
+	width, height = letter
+	frame1 = Frame(x, y, framex, framey, showBoundary=0)
+	paragraph = [Paragraph(text, style['Normal'])]
+	border = KeepInFrame(6*inch, 15*inch, paragraph)
+	borderdraw = frame1.addFromList([border], can)
+	#barcode1.drawOn(can, 325, 999, mm)
+	#barcode1.drawOn(can, 160.1, 980, mm)
+#if count == len(data_dict):
+	#saveCanvas(can, stringBuffer)
+
+def settingParagraphs3_3(text,  can, stringBuffer, x, y, count, data_dict, barcode1, framex, framey):
 	style = getSampleStyleSheet()
 	width, height = letter
 	paragraph = Paragraph(text, style=style["Normal"])
