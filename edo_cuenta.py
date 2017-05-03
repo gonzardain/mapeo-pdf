@@ -212,7 +212,7 @@ def settingText(stringBuffer, can, barcode1,  data_dict, barcode_value):
 ####################################################
 #		Nombre y Direccion Frontal                 #
 ####################################################
-	text= '<font name= "Keep Calm" color= "white" size="10">%s<br/><br/>%s %s %s %s CP %s <br/> %s %s</font>'%( data_dict[2], data_dict[3], data_dict[4][:-2], data_dict[5][:-2], data_dict[6], data_dict[7][:-2], data_dict[8], data_dict[9])
+	text= '<font name= "Keep Calm" color= "white" size="10">%s<br/><br/>%s %s %s %s CP %s <br/> %s %s</font>'%( data_dict[2], data_dict[3], data_dict[4], data_dict[5], data_dict[6], data_dict[7], data_dict[8], data_dict[9])
 	settingParagraphs(text, can, stringBuffer, 185, 860, count, data_dict, barcode1)
 
 ####################################################
@@ -242,7 +242,7 @@ def settingText(stringBuffer, can, barcode1,  data_dict, barcode_value):
 #		Direccion en la seccion 2	               #
 ####################################################
 
-	text2= '<font name= "Avenir Bold" color= "#525555" size="8">%s %s %s %s %s %s %s</font>'%( data_dict[3], data_dict[4][:-2], data_dict[5][:-2], data_dict[6], data_dict[7][:-2], data_dict[8], data_dict[9])
+	text2= '<font name= "Avenir Bold" color= "#525555" size="8">%s %s %s %s %s %s %s</font>'%( data_dict[3], data_dict[4], data_dict[5], data_dict[6], data_dict[7], data_dict[8], data_dict[9])
 	settingParagraphs4(text2, can, stringBuffer, 40, 523.5, count, data_dict, barcode1)
 	print len(data_dict)
 	for index in range(len(data_dict)):
