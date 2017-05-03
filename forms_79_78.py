@@ -181,7 +181,7 @@ def settingText(stringBuffer, can, barcode1,  data_dict, barcode_value):
 		data_dict[5] = str(data_dict[5])
 	except:
 		data_dict[5] = data_dict[5].encode('utf-8')
-	
+
 	data_dict[7] = str(data_dict[7])
 
 
