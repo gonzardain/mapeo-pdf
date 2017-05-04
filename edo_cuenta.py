@@ -246,6 +246,8 @@ def settingText(stringBuffer, can, barcode1,  data_dict, barcode_value):
 	settingParagraphs4(text2, can, stringBuffer, 40, 523.5, count, data_dict, barcode1)
 	print len(data_dict)
 	for index in range(len(data_dict)):
+		if data_dict[index] == None:
+			data_dict[index] = 0
 		text2 =""
 
 ####################################################
@@ -267,6 +269,7 @@ def settingText(stringBuffer, can, barcode1,  data_dict, barcode_value):
 #		Datos Agua                                 #
 ####################################################
 		elif 18 < index < 25:
+
 			value = float(data_dict[index])
 			text2= '<font name= "Avenir Regular" size="9">${:,.2f}</font>'.format(value)
 
