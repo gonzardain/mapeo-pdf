@@ -10,7 +10,7 @@ import ctypes
 
 def load_wb(count):
 	data_dict = []
-	wb = load_workbook('data.xlsx', data_only=False)
+	wb = load_workbook('base1.xlsx', data_only=False)
 	sheet_ranges = wb[wb.get_sheet_names()[0]]
 	ws = wb.active
 	row_count = ws.max_row
@@ -32,6 +32,7 @@ def do_stuff(data_dict, count):
     del data_dict[:]
 
 def settingBarcode(data_dict, count):
+	count= count +1
 	value_default = "29"
 	value_16 = str(data_dict[31].__add__("0"))
 	total_value = "{}{}".format(value_default, value_16)
@@ -52,8 +53,10 @@ def settingText(data_dict, barcode_value, count):
     file = open('CYF17502.txt','a')
     text=[]
     for data in range(10):
+	if data_dict[data] is None:
+	    data_dict[data]= ""
         if data == 0:
-            text.append("CYF17502|")
+            text.append("CYF17510|")
         elif data == 1:
             text.append(barcode_value)
             text.append("|")
@@ -81,14 +84,18 @@ def settingText(data_dict, barcode_value, count):
 
 
         elif data == 7:
-            text.append(str(data_dict[data]))
+	    data = str(data_dict[data])
+            print data
+            text.append(data[:-2])
             text.append("|")
-            text.append(str(data_dict[data]))
+            text.append(data[:-2])
 
 
             text.append("\n")
             file.writelines(text)
             save_file(file, text)
+
+	print count
 
 
 def save_file(file, text):
