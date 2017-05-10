@@ -47,7 +47,7 @@ pdfmetrics.registerFont(TTFont("Times", font_Times))
 
 def load_wb():
 	data_dict = []
-	wb = load_workbook('data.xlsx', data_only=False)
+	wb = load_workbook('base1.xlsx', data_only=False)
 	sheet_ranges = wb[wb.get_sheet_names()[0]]
 	ws = wb.active
 	row_count = ws.max_row
@@ -189,7 +189,7 @@ def settingText(stringBuffer, can, barcode1,  data_dict, barcode_value):
 ####################################################
 #		BLOQUE 1                                   #
 ####################################################
-	text= '<font name= "Times" color= "#05060B" size="7">%s %s %s %s CP %s <br/> %s %s</font>'%( data_dict[3], data_dict[4], data_dict[5], data_dict[6], data_dict[7], data_dict[8], data_dict[9])
+	text= '<font name= "Times" color= "#05060B" size="7">%s %s %s %s CP %s <br/> %s %s</font>'%( data_dict[3], data_dict[4][:-2], data_dict[5][:-2], data_dict[6], data_dict[7][:-2], data_dict[8], data_dict[9])
 	settingParagraphs1(text, can, stringBuffer, 5, 303, count, data_dict, barcode1, 245, 60, 14.02, 220)
 
 	text= '<font name= "Times" color= "#05060B" size="7">%s</font>'%( data_dict[35] )
@@ -202,7 +202,7 @@ def settingText(stringBuffer, can, barcode1,  data_dict, barcode_value):
 #		BLOQUE 2                                   #
 ####################################################
 
-	text= '<font name= "Times" color= "#05060B" size="7">%s %s %s %s CP %s <br/> %s %s</font>'%( data_dict[3], data_dict[4], data_dict[5], data_dict[6], data_dict[7], data_dict[8], data_dict[9])
+	text= '<font name= "Times" color= "#05060B" size="7">%s %s %s %s CP %s <br/> %s %s</font>'%( data_dict[3], data_dict[4][:-2], data_dict[5][:-2], data_dict[6], data_dict[7][:-2], data_dict[8], data_dict[9])
 	settingParagraphs1_2(text, can, stringBuffer, 272.7, 303, count, data_dict, barcode1, 245, 60, 278.5, 220)
 
 	text= '<font name= "Times" color= "#05060B" size="7">%s</font>'%( data_dict[35] )
@@ -215,7 +215,7 @@ def settingText(stringBuffer, can, barcode1,  data_dict, barcode_value):
 #		BLOQUE 3                                   #
 ####################################################
 
-	text= '<font name= "Times" color= "#05060B" size="7">%s %s %s %s CP %s <br/> %s %s</font>'%( data_dict[3], data_dict[4], data_dict[5], data_dict[6], data_dict[7], data_dict[8], data_dict[9])
+	text= '<font name= "Times" color= "#05060B" size="7">%s %s %s %s CP %s <br/> %s %s</font>'%( data_dict[3], data_dict[4][:-2], data_dict[5][:-2], data_dict[6], data_dict[7][:-2], data_dict[8], data_dict[9])
 	settingParagraphs1_3(text, can, stringBuffer, 535, 303, count, data_dict, barcode1, 245, 60, 542.98, 220)
 
 	text= '<font name= "Times" color= "#05060B" size="7">%s</font>'%( data_dict[35] )
@@ -343,7 +343,7 @@ def createPDF(stringBuffer):
 	output.addPage(page_1)
 	#output.addPage(page_2)
 	name = 'formas_%d.pdf' %pdf_counter
-	#print "creating %s"%name
+	print "creating %s"%name
 	save_name = os.path.join(os.path.expanduser("~"), "Desktop/FORMS", name)
 	outputStream = file(save_name, "wb")
 	output.write(outputStream)
